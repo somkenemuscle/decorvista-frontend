@@ -16,9 +16,11 @@ import { CartProvider } from "./context/cartContext";
 import Feedback from "./pages/feedback/feedback";
 import { FeedbackProvider } from "./context/feedbackContext";
 
+
 import './App.css';
 import SignUp from "./pages/signup/homeowner/signupho";
 import Signupid from "./pages/signup/designer/signupid";
+
 
 function App() {
   return (
@@ -38,9 +40,18 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contacts />} />
             <Route path="/cart" element={<Carts />} />
+
+
+            <Route path="/products/furniture" element={<Furniture />} />
             <Route path="/products/curtain" element={<Curtain />} />
-            <Route path="/products/furniture" element={<Furniture/>} />
-            <Route path="/products/lighting" element={<Lighting />} />
+            <Route path="/products/lighting" element={<Lighting/>} />
+
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/homeOwner/signup" element={<SignUp />} />
+            <Route path="/designer/signup" element={<Signupid />} />
+
+
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/cart/checkout" element={<Checkout />} />
@@ -52,4 +63,6 @@ function App() {
   );
 }
 
+
 export default App;
+
