@@ -3,21 +3,21 @@ import ProductCards from '../../components/productCards/productCards'
 import Footer from '../../components/footer/footer'
 import '../../styles/products.css'
 import useSlideAnimation from '../../animation/useSlideAnimation';
-import { makeupProducts } from '../../database/makeup';
+import { curtainProducts } from '../../database/curtain';
 
-function Makeup() {
+function Curtain() {
   //Slide animation functionality
-  useSlideAnimation();
+  useSlideAnimation()
 
   return (
     <div className='hidden'>
       <section className=" product-header-container">
-        <h2>ALL MAKE UP PRODUCTS</h2>
-        <p>Clean, cruelty-free products to pamper, protect and nourish every skin type.</p>
+        <h2>OUR CURTAINS</h2>
+        <p>Stylish, high-quality curtains for privacy, comfort, and light control.</p>
       </section>
       <div className="product-container container text-center">
         <div className="row">
-          {makeupProducts.map((product, index) => (
+          {curtainProducts.map((product, index) => (
             <div key={index} className="product-div col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
               <ProductCards
                 src={product.imageSrc}
@@ -36,4 +36,4 @@ function Makeup() {
   )
 }
 
-export default Makeup
+export default Curtain

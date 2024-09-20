@@ -3,21 +3,21 @@ import ProductCards from '../../components/productCards/productCards'
 import Footer from '../../components/footer/footer'
 import '../../styles/products.css'
 import useSlideAnimation from '../../animation/useSlideAnimation';
-import { jewelryProducts } from '../../database/jewellry';
+import { lightingProducts } from '../../database/lighting';
 
-function Jewellry() {
+function Lighting() {
   //Slide animation functionality
-  useSlideAnimation()
+  useSlideAnimation();
 
   return (
     <div className='hidden'>
       <section className=" product-header-container">
-        <h2>OUR JEWELLRIES</h2>
-        <p>Clean, cruelty-free products to pamper, protect and nourish every skin type.</p>
+        <h2>ALL LIGHTING PRODUCTS</h2>
+        <p>Illuminate your home with elegant, eco-friendly lighting solutions that brighten every corner.</p>
       </section>
       <div className="product-container container text-center">
         <div className="row">
-          {jewelryProducts.map((product, index) => (
+          {lightingProducts.map((product, index) => (
             <div key={index} className="product-div col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
               <ProductCards
                 src={product.imageSrc}
@@ -36,4 +36,4 @@ function Jewellry() {
   )
 }
 
-export default Jewellry
+export default Lighting
