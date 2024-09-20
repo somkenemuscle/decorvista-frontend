@@ -38,9 +38,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contacts />} />
             <Route path="/cart" element={<Carts />} />
-            <Route path="/products/jewellry" element={<Jewellry />} />
-            <Route path="/products/makeup" element={<Makeup />} />
-            <Route path="/products/hair" element={<Hair />} />
+            <Route path="/products/curtain" element={<Curtain />} />
+            <Route path="/products/furniture" element={<Furniture/>} />
+            <Route path="/products/lighting" element={<Lighting />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/cart/checkout" element={<Checkout />} />
