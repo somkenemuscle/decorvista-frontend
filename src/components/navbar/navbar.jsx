@@ -20,7 +20,7 @@ function navbar() {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
                             <li className="nav-item dropdown">
-                                <Link className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/products">Shop</Link>
+                                <Link className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/products">Shop Products</Link>
                                 <ul className="dropdown-menu">
                                     <li><Link className="dropdown-item" to="/products/hair">Hair</Link></li>
                                     <li><Link className="dropdown-item" to="/products/jewellry">Jewellry</Link></li>
@@ -35,10 +35,15 @@ function navbar() {
                             </li>
 
 
+                            <li className="nav-item">
+                                <Link className="nav-link" aria-current="page" to="/about">Blogs</Link>
+                            </li>
+
+
 
 
                             <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to="#">Signup</Link>
+                                <Link className="nav-link" aria-current="page" to="#">Login</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/cart">

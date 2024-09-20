@@ -12,7 +12,7 @@ function Footer() {
                                 <i className="fas fa-gem me-0.6"></i>DECORvista
                             </h6>
                             <p>
-                                Decorvista is a company that provides a platform where homeowners and interior designers can 
+                                Decorvista is a company that provides a platform where homeowners and interior designers can
                                 reach out to one another and share common goals.
                             </p>
                         </div>
@@ -36,7 +36,7 @@ function Footer() {
                         <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                             <h6 className="text-uppercase fw-bold mb-4">Reach Us</h6>
                             <p><i className="fas fa-home me-1"></i>10b Rock, Ikoyi Nigeria</p>
-                            <p><i className="fas fa-envelope me-1"></i>simplonbeauty@gmail.com</p>
+                            <p><i className="fas fa-envelope me-1"></i>decorvista@gmail.com</p>
                             <p><i className="fas fa-phone me-1"></i>+234 806 454 3589</p>
 
                         </div>
@@ -46,7 +46,7 @@ function Footer() {
             <div className="footer-copyright text-center p-4">
                 Copyright © 2024
                 <br />
-                <span>SIMPLON BEAUTY CARE</span>
+                <span>DECORVISTA</span>
             </div>
         </footer>
     );
