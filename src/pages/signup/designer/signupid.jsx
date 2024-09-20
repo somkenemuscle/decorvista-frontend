@@ -34,7 +34,7 @@ function Signupid() {
         <div className="container d-flex justify-content-center align-items-center" style={{ height: '130vh' }}>
             <div className="card" style={{ width: '400px' }}>
                 <div className="card-body">
-                    <h5 className="card-title text-center">Sign Up as Interior Designer</h5>
+                    <h4 className="text-center">Sign Up As A Designer</h4>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3 mt-4">
                             <label htmlFor="fullName" className="form-label">Full Name</label>
