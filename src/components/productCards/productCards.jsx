@@ -3,9 +3,9 @@ import '../../styles/productCard.css'
 import { FaStarHalfAlt } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { bestSellerProducts } from '../../database/bestsellers';
-import { hairCareProducts } from '../../database/hair';
-import { jewelryProducts } from '../../database/jewellry';
-import { makeupProducts } from '../../database/makeup';
+import { furnitureProducts } from '../../database/furniture';
+import { curtainProducts } from '../../database/curtain';
+import { lightingProducts } from '../../database/lighting';
 import { useCart } from '../../context/cartContext';
 
 
@@ -17,9 +17,9 @@ function ProductCards({ src, name, price, id, category }) {
   function handleCart(id, category) {
     const categoryProducts = {
       'best-seller': bestSellerProducts,
-      'hair': hairCareProducts,
-      'jewellry': jewelryProducts,
-      'makeup': makeupProducts,
+      'curtain': curtainProducts,
+      'furniture': furnitureProducts,
+      'lighting':  lightingProducts,
     };
 
     const product = categoryProducts[category]?.find(product => product.id === id);

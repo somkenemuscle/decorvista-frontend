@@ -60,7 +60,7 @@ function Home() {
 
       <div id='imgg-container'>
 
-        <img id='imgg' src="https://cdn.decorilla.com/imgp/png/a1ff2490-7b40-4dec-9f22-0d06b5e15c23/Online-interior-design-custom-proposals.png" />
+        <img id='imgg' alt="img" src="https://cdn.decorilla.com/imgp/png/a1ff2490-7b40-4dec-9f22-0d06b5e15c23/Online-interior-design-custom-proposals.png" />
       </div>
 
 

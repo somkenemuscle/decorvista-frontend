@@ -22,9 +22,9 @@ function navbar() {
                             <li className="nav-item dropdown">
                                 <Link className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/products">Shop Products</Link>
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/products/hair">Hair</Link></li>
-                                    <li><Link className="dropdown-item" to="/products/jewellry">Jewellry</Link></li>
-                                    <li><Link className="dropdown-item" to="/products/makeup">Makeup Kits</Link></li>
+                                    <li><Link className="dropdown-item" to="/products/curtain">Curtain</Link></li>
+                                    <li><Link className="dropdown-item" to="/products/furniture">Furniture</Link></li>
+                                    <li><Link className="dropdown-item" to="/products/lighting">Lighting</Link></li>
                                 </ul>
                             </li>
                             <li className="nav-item">
