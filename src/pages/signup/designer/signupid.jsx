@@ -1,29 +1,39 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Signupid() {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [yearsOfExperience, setYearsOfExperience] = useState('');
     const [portfolioLink, setPortfolioLink] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [specialization, setSpecialization] = useState('');
     const [about, setAbout] = useState('');
+    const router=useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('YOUR_API_ENDPOINT', {
-                fullName,
+
+            const response = await axios.post('http://localhost:4000/api/auth/designer/signup', {
+                fullname: fullName,
                 email,
                 password,
-                yearsOfExperience,
-                portfolioLink,
+                portfolio: portfolioLink,
                 phoneNumber,
                 specialization,
                 about,
             });
+            setAbout('')
+            setEmail('')
+            setFullName('')
+            setPassword('')
+            setPhoneNumber('')
+            setPortfolioLink('')
+            setSpecialization('')
+            router('/')
+
             console.log(response.data); // Handle success
         } catch (error) {
             console.error('Error signing up:', error); // Handle error
@@ -77,17 +87,6 @@ function Signupid() {
                                 id="phoneNumber"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="yearsOfExperience" className="form-label">Years of Experience</label>
-                            <input
-                                type="number"
-                                className="form-control"
-                                id="yearsOfExperience"
-                                value={yearsOfExperience}
-                                onChange={(e) => setYearsOfExperience(e.target.value)}
                                 required
                             />
                         </div>

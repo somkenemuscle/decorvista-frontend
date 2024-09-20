@@ -2,19 +2,24 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../../styles/login.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const router =useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('YOUR_API_ENDPOINT', {
+            const response = await axios.post(' http://localhost:4000/api/auth/signin',{
                 email,
                 password,
             });
+            setEmail('')
+            setPassword('')
+            router('/')
             console.log(response.data); // Handle success (e.g., redirect, show a message)
         } catch (error) {
             console.error('Error logging in:', error); // Handle error (e.g., show a message)

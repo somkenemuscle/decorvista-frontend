@@ -12,8 +12,8 @@ function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('YOUR_API_ENDPOINT', {
-                fullName,
+            const response = await axios.post('http://localhost:4000/api/auth/home-owner/signup', {
+                fullname:fullName,
                 email,
                 password,
             });
