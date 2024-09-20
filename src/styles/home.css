@@ -166,6 +166,35 @@
     transition: opacity 1.3s ease, transform 1s ease;
 }
 
+
+
+#imgg-p {
+    text-align: center;
+    margin-top: 7%;
+    padding: 2%;
+}
+
+#imgg-p h2 {
+    font-weight: bolder;
+    
+}
+
+#imgg-p p {
+    color: grey;
+    font-weight: 300;
+    margin-bottom: 3%;
+}
+
+#imgg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgg {
+    width: 100%;
+}
+
 /* media width styling */
 
 @media screen and (max-width: 410px) {
@@ -219,4 +248,3 @@
         transition: none;
     }
 }
-
