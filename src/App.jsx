@@ -7,11 +7,8 @@ import Navbar from "./components/navbar/navbar";
 import Error from "./pages/error/error";
 import Carts from "./pages/carts/carts";
 import Gallery from "./pages/gallery/gallery";
-import Nail from './pages/products/nail';
 import Jewellry from './pages/products/jewellry';
 import Makeup from './pages/products/makeup';
-import Skin from './pages/products/skin';
-import Weddingkits from './pages/products/weddingkits';
 import Hair from './pages/products/hair';
 import Checkout from "./pages/checkout/checkout";
 import { CartProvider } from "./context/cartContext";
@@ -38,11 +35,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contacts />} />
             <Route path="/cart" element={<Carts />} />
-            <Route path="/products/nail" element={<Nail />} />
             <Route path="/products/jewellry" element={<Jewellry />} />
             <Route path="/products/makeup" element={<Makeup />} />
-            <Route path="/products/skin" element={<Skin />} />
-            <Route path="/products/weddingkits" element={<Weddingkits />} />
             <Route path="/products/hair" element={<Hair />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/gallery" element={<Gallery />} />

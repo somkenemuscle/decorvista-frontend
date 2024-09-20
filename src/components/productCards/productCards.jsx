@@ -2,13 +2,10 @@ import React from 'react'
 import '../../styles/productCard.css'
 import { FaStarHalfAlt } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { skincareProducts } from '../../database/skincare';
 import { bestSellerProducts } from '../../database/bestsellers';
 import { hairCareProducts } from '../../database/hair';
 import { jewelryProducts } from '../../database/jewellry';
 import { makeupProducts } from '../../database/makeup';
-import { nailProducts } from '../../database/nail';
-import { weddingKits } from '../../database/wedding-kits';
 import { useCart } from '../../context/cartContext';
 
 
@@ -19,13 +16,10 @@ function ProductCards({ src, name, price, id, category }) {
   //handle cart functionality
   function handleCart(id, category) {
     const categoryProducts = {
-      'skincare': skincareProducts,
       'best-seller': bestSellerProducts,
       'hair': hairCareProducts,
       'jewellry': jewelryProducts,
       'makeup': makeupProducts,
-      'nail': nailProducts,
-      'wedding': weddingKits
     };
 
     const product = categoryProducts[category]?.find(product => product.id === id);

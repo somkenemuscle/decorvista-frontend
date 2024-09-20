@@ -9,12 +9,11 @@ function Footer() {
                     <div className="row mt-3">
                         <div className="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
                             <h6 className="text-uppercase fw-bold mb-4">
-                                <i className="fas fa-gem me-0.6"></i>SIMPLON BEAUTY CARE
+                                <i className="fas fa-gem me-0.6"></i>DECORvista
                             </h6>
                             <p>
-                                Simplon’s Beauty care  is a very big shop of cosmetics and accessories in the
-                                city. We are known for our quality service which we have been
-                                providing since 1985.
+                                Decorvista is a company that provides a platform where homeowners and interior designers can 
+                                reach out to one another and share common goals.
                             </p>
                         </div>
 
@@ -23,14 +22,14 @@ function Footer() {
                                 Customer
                             </h6>
                             <p>
-                                <a href="/" className="text-reset">Contact Us</a>
+                                <a href="/contact" className="text-reset">Contact Us</a>
                             </p>
 
                             <p>
-                                <a href="/" className="text-reset">Orders</a>
+                                <a href="/about" className="text-reset">About Us</a>
                             </p>
                             <p>
-                                <a href="/" className="text-reset">Feedback</a>
+                                <a href="/feedback" className="text-reset">Feedback</a>
                             </p>
                         </div>
 

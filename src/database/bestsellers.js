@@ -2,8 +2,8 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export const bestSellerProducts = [
-    { id: uuidv4(), name: "Exfoliation Mask", price: 25.00, imageSrc: "https://credobeauty.com/cdn/shop/products/marie_veronique_probiotic_exfoliation_mask_at_credo_beatuy_1426x.jpg?v=1694727446", category:'best-seller' },
-    { id: uuidv4(), name: "Frizz Hair Oil", price: 12.00, imageSrc: "https://credobeauty.com/cdn/shop/products/reverie_milk_at_credo_beauty_1946x.jpg?v=1694727565", category:'best-seller' },
-    { id: uuidv4(), name: "Liquid Liner", price: 19.00, imageSrc: "https://credobeauty.com/cdn/shop/files/Ilia_LiquidLiner_01_1426x.png?v=1712458198", category:'best-seller' },
-    { id: uuidv4(), name: "Night Cream", price: 30.00, imageSrc: "https://credobeauty.com/cdn/shop/products/juice_beauty_green_apple_brightening_emulsion_at_credo_beauty_1946x.jpg?v=1694727561", category:'best-seller' },
+    { id: uuidv4(), name: "Green Sofa", price: 25.00, imageSrc: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=800&auto=format&fit=crop&q=60", category:'best-seller' },
+    { id: uuidv4(), name: "Standing Chair", price: 12.00, imageSrc: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&h=800&auto=format&fit=crop&q=60", category:'best-seller' },
+    { id: uuidv4(), name: "3 Loafer", price: 19.00, imageSrc: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800&h=800&auto=format&fit=crop&q=60", category:'best-seller' },
+    { id: uuidv4(), name: "The Gray Seat", price: 30.00, imageSrc: "https://images.unsplash.com/photo-1491926626787-62db157af940?w=800&h=800&auto=format&fit=crop&q=60", category:'best-seller' },
 ];
