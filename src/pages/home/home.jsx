@@ -17,7 +17,7 @@ function Home() {
   useSlideAnimation();
 
   return (
-    <div>
+    <div >
       {/* carousel section */}
       <section className='hidden'>
         <Carousel />
@@ -53,6 +53,17 @@ function Home() {
       </section>
 
 
+      <div id='imgg-p'>
+        <h2 id='a'>Receive  custom proposals from multiple designers</h2>
+        <p id='b'> Choose your favorite professional designer to help translate your vision.</p>
+      </div>
+
+      <div id='imgg-container'>
+
+        <img id='imgg' src="https://cdn.decorilla.com/imgp/png/a1ff2490-7b40-4dec-9f22-0d06b5e15c23/Online-interior-design-custom-proposals.png" />
+      </div>
+
+
 
       {/* mission section */}
       <div className="hidden mission-container container text-center ">
@@ -76,7 +87,7 @@ function Home() {
 
 
       {/* img section */}
-      <section className='img2-section hidden'>
+      {/* <section className='img2-section hidden'>
         <div className="container">
           <div className="row">
             <div className="img2-text col-lg-6 col-md-6 col-sm-12">
@@ -93,7 +104,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
 
