@@ -22,7 +22,7 @@ function Gallery() {
         <div>
             <section className=" product-header-container">
                 <h2>OUR GALLERY PAGE</h2>
-                <p>Pictures of our products and our beautiful customers</p>
+                <p>Pictures of our products and interior designs</p>
             </section>
             <div className='gallery-bg'>
                 <div className='row'>

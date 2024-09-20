@@ -5,6 +5,7 @@ import Contacts from "./pages/contacts/contacts";
 import About from "./pages/about/about";
 import Navbar from "./components/navbar/navbar";
 import Error from "./pages/error/error";
+import Login from "./pages/login/login";
 import Carts from "./pages/carts/carts";
 import Gallery from "./pages/gallery/gallery";
 import Jewellry from './pages/products/jewellry';
@@ -16,6 +17,8 @@ import Feedback from "./pages/feedback/feedback";
 import { FeedbackProvider } from "./context/feedbackContext";
 
 import './App.css';
+import SignUp from "./pages/signup/homeowner/signupho";
+import Signupid from "./pages/signup/designer/signupid";
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contacts />} />
             <Route path="/cart" element={<Carts />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/homeOwner/signup" element={<SignUp />} />
+            <Route path="/designer/signup" element={<Signupid />} />
             <Route path="/products/jewellry" element={<Jewellry />} />
             <Route path="/products/makeup" element={<Makeup />} />
             <Route path="/products/hair" element={<Hair />} />
