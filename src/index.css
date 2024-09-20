@@ -1,0 +1,28 @@
+body {
+    /* font-family: "Poppins", sans-serif;   */
+    font-family: "Inter", sans-serif;
+}
+
+/* header info styling */
+.header-navbar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header {
+    text-align: center;
+    padding: 0.5% 1%;
+    color: black;
+    font-size: 14px;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #fffdfd, #f6f2f2);
+}
+
+/* media width styling */
+@media (max-width: 472px) {
+    header {
+        font-size: 10px;
+        font-weight: bold;
+    }
+}

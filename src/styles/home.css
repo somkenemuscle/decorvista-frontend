@@ -1,0 +1,222 @@
+/* carousel styling */
+.carousel-item img {
+    height: 80vh;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.carousel-text-bg {
+    background: linear-gradient(to right, #ffffff, #f6f2f2);
+    margin-left: -12px;
+    padding: 54px;
+    text-align: left;
+    padding-top: 10%;
+}
+
+
+.carousel-text-bg p {
+    letter-spacing: -0.1px;
+}
+
+.carousel-text-bg h2 {
+    font-weight: bold;
+}
+
+.carousel-text-bg button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 13px 5px 13px;
+    border: 1px solid black;
+    font-weight: 500;
+}
+
+.carousel-text-bg button:hover {
+    background-color: rgb(42, 41, 41);
+    transition: 0.2s;
+}
+
+/* shop by category */
+.shop-by-category-container {
+    margin-top: 5%;
+    margin-bottom: 4%;
+}
+
+.shop-by-category-container h3 {
+    text-align: center;
+    font-weight: 600;
+    font-family: helvetica;
+    letter-spacing: -0.1px;
+    font-size: 25px;
+}
+
+/* best sellers section */
+#best-sellers-section {
+    padding-top: 5%;
+    padding-bottom: 4%;
+}
+
+#best-sellers-section h2 {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: -0.1px;
+    padding-bottom: 1%;
+}
+
+/* Mission about products styling */
+.mission-container {
+    margin-top: 5%;
+    margin-bottom: 8%;
+}
+
+.mission-container h4 {
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+
+.mission-icons {
+    font-size: 55px;
+}
+
+.mission-container p {
+    margin-top: 6%;
+    letter-spacing: 1px;
+}
+
+.no-icon {
+    color: rgb(133, 3, 3);
+}
+
+.flower-icon {
+    color: rgb(55, 81, 15);
+}
+
+/* image discount section styling */
+.img2-section .img2-text {
+    margin-top: 3%;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.img2-section h3 {
+    letter-spacing: -1px;
+    position: relative;
+    top: 32%;
+}
+
+.img2-section p {
+    color: #7e7e7e;
+    letter-spacing: 1px;
+    font-weight: 400;
+    line-height: 25px;
+    padding-right: 10px;
+    position: relative;
+    top: 32%;
+}
+
+.img2-section button {
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border: none;
+    border: 1px solid black;
+    letter-spacing: 1px;
+    font-size: 15px;
+    position: relative;
+    top: 32%;
+}
+
+.img2-section button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.4s;
+}
+
+.img2-section #img-bg {
+    height: 50vh;
+    background-image: url('https://www.cloud10beauty.com/cdn/shop/files/pestle-and-mortar-the-ultimate-hydration-gift-set.jpg?v=1708513134&width=990');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    margin-left: -9px;
+}
+
+.img2-section #img-bg:hover {
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+/* upcoming section styling */
+.upcoming-section {
+    margin-top: 6%;
+}
+
+
+/* scroll animation */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.3s ease, transform 1s ease;
+}
+
+/* media width styling */
+
+@media screen and (max-width: 410px) {
+    .img2-section #img-bg {
+        margin-left: 1%;
+        margin-left: 1%;
+
+    }
+}
+
+@media (max-width: 700px) {
+    #promo-section {
+        padding-bottom: 4%;
+    }
+
+    #promo-section p {
+        max-width: 70%;
+        margin: 0 auto;
+        padding-left: 0.5%;
+        padding-right: 0.5%;
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: 2px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .carousel-text-bg {
+        padding-top: 3%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .carousel-text-bg {
+        padding-top: 5%;
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    #selfcare-section p {
+        max-width: 85%;
+    }
+}
+
+@media (prefers-reduced-motion) {
+
+    .hidden,
+    .revealed {
+        transition: none;
+    }
+}
+

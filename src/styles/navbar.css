@@ -1,0 +1,43 @@
+/* navbar styling */
+nav {
+    background-color: white;
+}
+
+.navbar-brand {
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 5px;
+
+}
+
+.navbar-brand .main-text {
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: black;
+    margin-top: -5%;
+}
+
+.navbar-brand .sub-text {
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: -7px;
+    color: rgb(120, 117, 117);
+}
+
+.navbar-brand:hover {
+    cursor: pointer;
+}
+
+
+.nav-link {
+    letter-spacing: -0.3px;
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
