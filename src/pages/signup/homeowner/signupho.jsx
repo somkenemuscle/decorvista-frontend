@@ -7,111 +7,123 @@ import { useSnackbar } from 'notistack';
 import axiosInstance from '../../../lib/axiosInstance';
 import Loader from '../../../components/Loader';
 import useUserStore from '../../../stores/store';
+import { Eye, EyeOff } from 'react-feather'; // Import Eye and EyeOff icons
 
 function SignUp() {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
-    const { setUsername } = useUserStore(); // Access global state and setter from Zustand
-
+    const { setUsername } = useUserStore();
 
     const router = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
-        setLoading(true);
-
         e.preventDefault();
+        setLoading(true);
         try {
             const response = await axiosInstance.post('/auth/home-owner/signup', {
                 fullname: fullName,
                 email,
                 password,
             });
-            setPassword('')
-            setEmail('')
-            setPassword('')
-            enqueueSnackbar(response.data.message, { variant: 'success' })
-            setUsername("yeahhhhh")
-            router('/')
-
+            setFullName('');
+            setEmail('');
+            setPassword('');
+            enqueueSnackbar(response.data.message, { variant: 'success' });
+            setUsername("yeahhhhh");
+            router('/');
         } catch (error) {
-            console.error('Error occurred during signin:', error);
-
-            // Default error message
             let errorMessage = 'An error occurred. Please try again.';
-
-            // Check if the error is an Axios error
             if (axios.isAxiosError(error)) {
-                // Check for a response error
                 if (error.response) {
-                    // Extract message from response if available
-                    const responseMessage = error.response.data?.error;
-                    if (responseMessage) {
-                        errorMessage = responseMessage;
-                    } else {
-                        errorMessage = error.response.data?.message || errorMessage;
-                    }
+                    errorMessage = error.response.data?.error || error.response.data?.message || errorMessage;
                 } else {
-                    // Handle cases where no response is available (e.g., network errors)
                     errorMessage = 'Network error. Please try again.';
                 }
-            } else {
-                // Handle unexpected error types
-                errorMessage = 'An unexpected error occurred. Please try again later.';
             }
-            enqueueSnackbar(errorMessage, { variant: 'error' })
-
+            enqueueSnackbar(errorMessage, { variant: 'error' });
         } finally {
-            // Hide the loader after request is complete (either success or error)
-        setLoading(false);
-
+            setLoading(false);
         }
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ height: '60vh' }}>
-            <div className="card" style={{ width: '400px' }}>
-                <div className="card-body">
-                    <h5 className="card-title text-center">Sign Up as Homeowner</h5>
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-3 mt-4">
-                            <label htmlFor="fullName" className="form-label">Full Name</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="fullName"
-                                value={fullName}
-                                onChange={(e) => setFullName(e.target.value)}
-                                required
-                            />
+        <div className="container-fluid">
+            <div className="row h-100">
+                {/* Left Side: Sign Up Form */}
+                <div className="col-lg-6 d-flex justify-content-center align-items-center">
+                    <div className="card" style={{ width: '400px' }}>
+                        <div className="card-body">
+                            <h2 className="text-center" style={{ fontWeight: '800' }}>Sign Up</h2>
+                            <p className="text-center" style={{ color: 'grey', fontWeight: '300', marginBottom: '10%' }}>
+                                Register with us as a  <span style={{ fontWeight: '500' }}>Home owner </span>!
+                            </p>
+                            <form onSubmit={handleSubmit} className="w-100">
+                                <div className="mb-3">
+                                    <input
+                                        type="text"
+                                        placeholder='Enter your full name'
+                                        className="form-control small-placeholder"
+                                        id="fullName"
+                                        value={fullName}
+                                        onChange={(e) => setFullName(e.target.value)}
+                                        style={{ padding: '12px' }}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <input
+                                        type="email"
+                                        placeholder='Enter your email'
+                                        className="form-control small-placeholder"
+                                        id="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        style={{ padding: '12px' }}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-3 position-relative">
+                                    <input
+                                        type={showPassword ? 'text' : 'password'}
+                                        placeholder='Enter your password'
+                                        className="form-control small-placeholder"
+                                        id="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        style={{ padding: '12px' }}
+                                        required
+                                    />
+                                    <button
+                                        type="button"
+                                        className="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        {showPassword ? (
+                                            <EyeOff size={15} color="grey" />
+                                        ) : (
+                                            <Eye size={15} color="grey" />
+                                        )}
+                                    </button>
+                                </div>
+                                <button type="submit" className="btn btn-dark w-100 d-flex justify-content-center align-items-center" style={{ padding: '10px', fontSize: '14px' }}>
+                                    Sign Up
+                                    {loading && <Loader />}
+                                </button>
+                            </form>
+                            <p className="text-center mt-3" style={{ padding: '4px', fontSize: '14px' }}>
+                                Are you a designer? <Link to='/designer/signup'>Create an account here</Link>
+                            </p>
                         </div>
-                        <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Email</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="password" className="form-label">Password</label>
-                            <input
-                                type="password"
-                                className="form-control"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-dark w-100 d-flex justify-content-center align-items-center">Sign Up  {loading && <span className="ml-3"> <Loader /> </span>}</button>
-                    </form>
-                    <p>Are you a designer? <Link to='/designer/signup'>Signup here</Link> </p>
+                    </div>
+                </div>
+                {/* Right Side: Image */}
+                <div className="col-md-6 d-none d-md-block">
+                    <img src="https://images.unsplash.com/photo-1615528650248-8630bcd26814?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sign Up Visual" className="img-fluid" style={{ height: '100%', objectFit: 'cover' }} />
                 </div>
             </div>
         </div>
