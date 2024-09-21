@@ -8,6 +8,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    font-weight: 700;
 }
 
 header {
@@ -16,7 +17,7 @@ header {
     color:white;
     font-size: 14px;
     letter-spacing: 2px;
-    background: black;
+    background: rgb(0, 0, 0);
 }
 
 /* media width styling */
