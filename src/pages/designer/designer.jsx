@@ -66,10 +66,10 @@ const DesignerPage = () => {
                    {/* Portfolio Link  */}
                   <div className="text-center my-4">
                     <a
-                      href={designer.portfolioLink}
+                      href={designer.portfolio}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-primary btn-lg"
+                      className="btn btn-dark btn-lg"
                     >
                       View Portfolio
                     </a>
