@@ -21,7 +21,7 @@ function Navbar() {
     function handleLogout() {
         localStorage.removeItem('fullname')
         setUsername('')
-        enqueueSnackbar('Log Out Successful',  { variant: 'success' })
+        enqueueSnackbar('Log Out Successful', { variant: 'success' })
 
     }
 
@@ -40,7 +40,7 @@ function Navbar() {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
                             <li className="nav-item dropdown">
-                                <Link className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/products">Shop Products</Link>
+                                <Link className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/products">Products</Link>
                                 <ul className="dropdown-menu">
                                     <li><Link className="dropdown-item" to="/products/curtain">Curtain</Link></li>
                                     <li><Link className="dropdown-item" to="/products/furniture">Furniture</Link></li>
@@ -56,7 +56,7 @@ function Navbar() {
 
 
                             <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to="/about">About Us</Link>
+                                <Link className="nav-link" aria-current="page" to="/about">About</Link>
                             </li>
                             {foundUsername ? (
                                 <li className="nav-item">
@@ -74,7 +74,7 @@ function Navbar() {
 
                             <li className="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/cart">
-                                    <GiShoppingCart /> </Link>
+                                    Cart </Link>
                             </li>
 
                         </ul>
