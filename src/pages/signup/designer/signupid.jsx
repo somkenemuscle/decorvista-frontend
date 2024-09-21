@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {  useSnackbar } from 'notistack';
 import axiosInstance from '../../../lib/axiosInstance';
-
+import axios from 'axios';
 
 
 function Signupid() {
@@ -41,7 +41,34 @@ function Signupid() {
 
        
         } catch (error) {
-            console.error('Error signing up:', error); // Handle error
+            console.error('Error occurred during signin:', error);
+
+            // Default error message
+            let errorMessage = 'An error occurred. Please try again.';
+
+            // Check if the error is an Axios error
+            if (axios.isAxiosError(error)) {
+                // Check for a response error
+                if (error.response) {
+                    // Extract message from response if available
+                    const responseMessage = error.response.data?.error;
+                    if (responseMessage) {
+                        errorMessage = responseMessage;
+                    } else {
+                        errorMessage = error.response.data?.message || errorMessage;
+                    }
+                } else {
+                    // Handle cases where no response is available (e.g., network errors)
+                    errorMessage = 'Network error. Please try again.';
+                }
+            } else {
+                // Handle unexpected error types
+                errorMessage = 'An unexpected error occurred. Please try again later.';
+            }
+            enqueueSnackbar(errorMessage,{variant:'error'})
+
+        } finally {
+            // Hide the loader after request is complete (either success or error)
         }
     };
 
