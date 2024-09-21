@@ -96,13 +96,13 @@ function Login() {
                                         )}
                                     </button>
                                 </div>
-                                <button type="submit" style={{ padding: '10px' }} className="btn btn-dark w-100 d-flex justify-content-center align-items-center">
-                                    Log In
+                                <button type="submit" style={{ padding: '10px' , fontSize: '14px' }} className="btn btn-dark w-100 d-flex justify-content-center align-items-center">
+                                    Login
                                     {loading && <Loader />}
                                 </button>
                             </form>
 
-                            <p className="text-center mt-3">
+                            <p className="text-center mt-3 " style={{ padding: '4px', fontSize: '14px'}}>
                                 Don't have an account? <Link to='/homeowner/signup'>SignUp</Link>
                             </p>
                         </div>
