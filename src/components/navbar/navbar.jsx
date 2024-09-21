@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
-import '../../styles/navbar.css'
+import '../../styles/navbar.css';
 import { GiThreeLeaves, GiShoppingCart } from "react-icons/gi";
-import { useEffect, useState } from 'react';
-
 
 function Navbar() {
-    const [foundUsername, setusername] = useState('')
+    const [foundUsername, setUsername] = useState('');
+
     useEffect(() => {
-        const username = localStorage.getItem('fullname')
+        const username = localStorage.getItem('fullname');
         if (username) {
-            setusername(username)
+            setUsername(username);
         }
 
-    }, [])
+        const handleStorageChange = (event) => {
+            if (event.key === 'fullname') {
+                setUsername(event.newValue);
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        // Clean up the event listener on unmount
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
 
     return (
         <>
@@ -43,37 +54,33 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/designer">Designers</Link>
                             </li>
-
-
                             <li className="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/about">About Us</Link>
                             </li>
                             {foundUsername ? (
                                 <li className="nav-item">
-                                    <Link className="nav-link" aria-current="page" to="/login">Logout</Link>
+                                    <Link className="nav-link" aria-current="page" to="/login" onClick={() => {
+                                        localStorage.removeItem('fullname'); // Clear username on logout
+                                        setUsername(''); // Update state
+                                    }}>Logout</Link>
                                 </li>
-
-                            ) :
-                                (
-                                    <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="/login">Login</Link>
-                                    </li>
-                                )
-                            }
-
-
+                            ) : (
+                                <li className="nav-item">
+                                    <Link className="nav-link" aria-current="page" to="/login">Login</Link>
+                                </li>
+                            )}
                             <li className="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/cart">
-                                    <GiShoppingCart /> </Link>
+                                    <GiShoppingCart />
+                                </Link>
                             </li>
-
                         </ul>
                     </div>
-                </div >
-            </nav >
+                </div>
+            </nav>
             <Outlet />
         </>
     );
 }
 
-export default Navbar
+export default Navbar;
