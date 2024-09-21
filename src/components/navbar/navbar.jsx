@@ -1,14 +1,15 @@
-import React from 'react'
-import { Outlet, Link } from "react-router-dom";
-import '../../styles/navbar.css'
-import { GiThreeLeaves, GiShoppingCart } from "react-icons/gi";
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Outlet, Link, useLocation } from "react-router-dom";
+import '../../styles/navbar.css';
+import { GiThreeLeaves } from "react-icons/gi";
 import useUserStore from '../../stores/store';
 import { useSnackbar } from 'notistack';
 
 function Navbar() {
     const { foundUsername, setUsername } = useUserStore(); // Access global state and setter from Zustand
     const { enqueueSnackbar } = useSnackbar();
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage the navbar toggle
+    const location = useLocation(); // Hook to detect route changes
 
     useEffect(() => {
         const username = localStorage.getItem('fullname');
@@ -17,13 +18,20 @@ function Navbar() {
         }
     }, [setUsername]); // Only run on component mount
 
+    useEffect(() => {
+        // Close the menu when the route changes
+        setIsMenuOpen(false);
+    }, [location]); // Runs every time the route changes
 
     function handleLogout() {
-        localStorage.removeItem('fullname')
-        setUsername('')
-        enqueueSnackbar('Log Out Successful', { variant: 'success' })
-
+        localStorage.removeItem('fullname');
+        setUsername('');
+        enqueueSnackbar('Log Out Successful', { variant: 'success' });
     }
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
         <>
@@ -34,10 +42,19 @@ function Navbar() {
                         <div className="main-text">DECOR</div>
                         <div className="sub-text">VISTA</div>
                     </Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded={isMenuOpen}
+                        aria-label="Toggle navigation"
+                        onClick={toggleMenu}
+                    >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <div className={`collapse navbar-collapse justify-content-end ${isMenuOpen ? 'show' : ''}`} id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
                             <li className="nav-item dropdown">
                                 <Link className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/products">Products</Link>
@@ -53,33 +70,25 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/designer">Designers</Link>
                             </li>
-
                             {foundUsername ? (
                                 <li className="nav-item">
                                     <Link className="nav-link" onClick={handleLogout} aria-current="page" to="/login">Logout</Link>
                                 </li>
-
-                            ) :
-                                (
-                                    <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="/login">Login</Link>
-                                    </li>
-                                )
-                            }
-
-
+                            ) : (
+                                <li className="nav-item">
+                                    <Link className="nav-link" aria-current="page" to="/login">Login</Link>
+                                </li>
+                            )}
                             <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to="/cart">
-                                    Cart </Link>
+                                <Link className="nav-link" aria-current="page" to="/cart">Cart</Link>
                             </li>
-
                         </ul>
                     </div>
-                </div >
-            </nav >
+                </div>
+            </nav>
             <Outlet />
         </>
     );
 }
 
-export default Navbar
+export default Navbar;
