@@ -5,14 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import axiosInstance from '../../lib/axiosInstance';
 import axios from 'axios';
+import Loader from '../../components/Loader';
+
+
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useNavigate();
+    const [loading, setLoading] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
+        // Show loader before making the request
+        setLoading(true);
         e.preventDefault();
         try {
             const response = await axiosInstance.post('/auth/signin', {
@@ -55,10 +61,11 @@ function Login() {
                 // Handle unexpected error types
                 errorMessage = 'An unexpected error occurred. Please try again later.';
             }
-            enqueueSnackbar(errorMessage,{variant:'error'})
+            enqueueSnackbar(errorMessage, { variant: 'error' })
 
         } finally {
             // Hide the loader after request is complete (either success or error)
+            setLoading(false);
         }
 
     }
@@ -94,7 +101,7 @@ function Login() {
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn btn-dark w-100">Login</button>
+                        <button type="submit" className="btn btn-dark w-100">Login  {loading &&  <Loader />}</button>
                     </form>
                     <p id='fff'>Don't have an account? <Link to='/homeowner/signup'>SignUp</Link> </p>
                 </div>

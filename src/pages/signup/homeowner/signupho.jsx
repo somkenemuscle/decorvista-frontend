@@ -5,15 +5,21 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import axiosInstance from '../../../lib/axiosInstance';
+import Loader from '../../../components/Loader';
+
 
 function SignUp() {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+
     const router = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
+        setLoading(true);
+
         e.preventDefault();
         try {
             const response = await axiosInstance.post('/auth/home-owner/signup', {
@@ -56,6 +62,8 @@ function SignUp() {
 
         } finally {
             // Hide the loader after request is complete (either success or error)
+        setLoading(false);
+
         }
     };
 
@@ -98,7 +106,7 @@ function SignUp() {
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn btn-dark w-100">Sign Up</button>
+                        <button type="submit" className="btn btn-dark w-100">Sign Up  {loading && <span className="ml-3"> <Loader /> </span>}</button>
                     </form>
                     <p>Are you a designer? <Link to='/designer/signup'>Signup here</Link> </p>
                 </div>

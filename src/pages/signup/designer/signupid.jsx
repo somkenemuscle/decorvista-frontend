@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {  useSnackbar } from 'notistack';
 import axiosInstance from '../../../lib/axiosInstance';
 import axios from 'axios';
-
+import Loader from '../../../components/Loader';
 
 function Signupid() {
     const [fullName, setFullName] = useState('');
@@ -12,11 +12,15 @@ function Signupid() {
     const [portfolioLink, setPortfolioLink] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [specialization, setSpecialization] = useState('');
+    const [loading, setLoading] = useState(false);
+
     const [about, setAbout] = useState('');
     const router=useNavigate();
     const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
+        setLoading(true);
+
         e.preventDefault();
         try {
 
@@ -68,6 +72,8 @@ function Signupid() {
             enqueueSnackbar(errorMessage,{variant:'error'})
 
         } finally {
+        setLoading(false);
+
             // Hide the loader after request is complete (either success or error)
         }
     };
@@ -153,7 +159,7 @@ function Signupid() {
                                 onChange={(e) => setAbout(e.target.value)}
                             />
                         </div>
-                        <button type="submit" className="btn btn-dark w-100">Sign Up</button>
+                        <button type="submit" className="btn btn-dark w-100">Sign Up  {loading && <span className="ml-3"> <Loader /> </span>}</button>
                     </form>
                 </div>
             </div>
