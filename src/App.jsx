@@ -33,7 +33,7 @@ function App() {
             <div className='header-navbar-wrapper' >
               {/* header section */}
               <header >
-                <span>GET 2 FREE SAMPLES WITH ANY $48 PURCHASE </span>
+                <span>GET 20% DISCOUNT ON ALL ORDERS ABOVE $48 </span>
               </header>
               {/* navbar section */}
               <Navbar />
