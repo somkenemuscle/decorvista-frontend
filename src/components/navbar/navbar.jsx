@@ -32,7 +32,7 @@ function Navbar() {
                             <li className="nav-item dropdown">
                                 <Link className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/products">Shop Products</Link>
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/products/curtain">Curtain</Link></li>
+                                    <li><Link className="dropdown-item" to="/products/curtain">Curtains</Link></li>
                                     <li><Link className="dropdown-item" to="/products/furniture">Furniture</Link></li>
                                     <li><Link className="dropdown-item" to="/products/lighting">Lighting</Link></li>
                                 </ul>
