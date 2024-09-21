@@ -46,7 +46,7 @@ function Navbar() {
 
 
                             <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to="/about">About us</Link>
+                                <Link className="nav-link" aria-current="page" to="/about">About Us</Link>
                             </li>
                             {foundUsername ? (
                                 <li className="nav-item">
