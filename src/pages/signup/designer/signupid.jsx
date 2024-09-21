@@ -4,8 +4,9 @@ import {  useSnackbar } from 'notistack';
 import axiosInstance from '../../../lib/axiosInstance';
 import axios from 'axios';
 import Loader from '../../../components/Loader';
-
+import useUserStore from '../../../stores/store';
 function Signupid() {
+    const {  setUsername } = useUserStore(); // Access global state and setter from Zustand
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -41,6 +42,7 @@ function Signupid() {
             setPortfolioLink('')
             setSpecialization('')
             enqueueSnackbar(response.data.message)
+            setUsername("yessssssss")
             router('/')
 
        

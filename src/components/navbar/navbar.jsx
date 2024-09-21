@@ -2,18 +2,24 @@ import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 import '../../styles/navbar.css'
 import { GiThreeLeaves, GiShoppingCart } from "react-icons/gi";
-import { useEffect, useState } from 'react';
-
+import { useEffect } from 'react';
+import useUserStore from '../../stores/store';
 
 function Navbar() {
-    const [foundUsername, setusername] = useState('')
-    useEffect(() => {
-        const username = localStorage.getItem('fullname')
-        if (username) {
-            setusername(username)
-        }
+    const { foundUsername, setUsername } = useUserStore(); // Access global state and setter from Zustand
 
-    }, [])
+    useEffect(() => {
+        const username = localStorage.getItem('fullname');
+        if (username) {
+            setUsername(username); // Set global username state
+        }
+    }, [setUsername]); // Only run on component mount
+
+
+    function handleLogout() {
+        localStorage.removeItem('fullname')
+        setUsername('')
+    }
 
     return (
         <>
@@ -50,7 +56,7 @@ function Navbar() {
                             </li>
                             {foundUsername ? (
                                 <li className="nav-item">
-                                    <Link className="nav-link" aria-current="page" to="/login">Logout</Link>
+                                    <Link className="nav-link" onClick={handleLogout} aria-current="page" to="/login">Logout</Link>
                                 </li>
 
                             ) :

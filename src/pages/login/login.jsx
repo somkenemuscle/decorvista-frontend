@@ -6,10 +6,12 @@ import { useSnackbar } from 'notistack';
 import axiosInstance from '../../lib/axiosInstance';
 import axios from 'axios';
 import Loader from '../../components/Loader';
-
+import useUserStore from '../../stores/store';
 
 
 function Login() {
+    const { setUsername } = useUserStore(); // Access global state and setter from Zustand
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useNavigate();
@@ -26,6 +28,7 @@ function Login() {
                 password,
             });
             const { fullname } = response.data
+            setUsername('fullname')
             if (fullname) {
                 localStorage.setItem('fullname', fullname)
             }
@@ -33,6 +36,7 @@ function Login() {
             setPassword('')
             enqueueSnackbar(response.data.message)
             router('/')
+
 
 
             console.log(response.data); // Handle success (e.g., redirect, show a message)

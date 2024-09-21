@@ -6,13 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import axiosInstance from '../../../lib/axiosInstance';
 import Loader from '../../../components/Loader';
-
+import useUserStore from '../../../stores/store';
 
 function SignUp() {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+    const { setUsername } = useUserStore(); // Access global state and setter from Zustand
+
 
     const router = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
@@ -31,6 +33,7 @@ function SignUp() {
             setEmail('')
             setPassword('')
             enqueueSnackbar(response.data.message)
+            setUsername("yeahhhhh")
             router('/')
 
         } catch (error) {
