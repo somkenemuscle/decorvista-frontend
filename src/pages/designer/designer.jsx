@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../../styles/design.css'
 
 
 const DesignerPage = () => {
@@ -24,72 +25,64 @@ const DesignerPage = () => {
   }, []);
 
   return (
-    <>
-      {designers && designers.length > 0 ?
-        (
-          designers.map((designer, index) => (
-            <div className="container my-5">
-              < div className="card shadow-lg" >
-               {/* Card for Designer Information */}
-                < div key={index} className="card-body">
-                  {/* Full Name  */}
-                  <h1 className="card-title text-center display-4">{designer.fullname}</h1>
-
-                  {/* Divider  */}
-                  <hr />
-
-                  {/* Designer Details */}
-                  <div className="row my-4">
-                    {/* Email */}
-                    <div className="col-md-6">
-                      <h5>Email</h5>
-                      <p>
-                        <a href={`mailto:${designer.email}`} className="text-decoration-none text-primary">
-                          {designer.email}
-                        </a>
-                      </p>
-                    </div>
-
-                    {/* Specialization */}
-                    <div className="col-md-6">
-                      <h5>Specialization</h5>
-                      <p>{designer.specialization}</p>
-                    </div>
-                  </div>
-
-                  {/* About Section */}
-                  <div className="my-4">
-                    <h5>About</h5>
-                    <p className="lead">{designer.about}</p>
-                  </div>
-
-                   {/* Portfolio Link  */}
-                  <div className="text-center my-4">
+    <div className="container my-5">
+    <div className="row">
+      {designers.map((designer, index) => (
+        <div key={index} className="col-md-6 col-12 mb-4">
+          <div className="card shadow-lg card-custom">
+            <div className="row">
+              <div className="col-12">
+                {/* Full Name */}
+                <div className="mb-3">
+                  <h6 className="font-weight-bold">Full Name</h6>
+                  <span className="font-weight-bold">{designer.fullname}</span>
+                </div>
+  
+                {/* Email */}
+                <div className="mb-3">
+                  <h6 className="font-weight-bold">Email</h6>
+                  <p className="mb-0">
                     <a
-                      href={designer.portfolio}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-dark btn-lg"
+                      href={`mailto:${designer.email}`}
+                      className="text-decoration-none text-primary"
                     >
-                      View Portfolio
+                      {designer.email}
                     </a>
-                  </div>
+                  </p>
+                </div>
+  
+                {/* Specialization */}
+                <h6 className="font-weight-bold">Specialization</h6>
+                <span className="mb-3">{designer.specialization}</span>
+  
+                {/* About Section */}
+                <div className="my-4">
+                  <h6 className="font-weight-bold">About</h6>
+                  <span className="lead mb-3">{designer.about}</span>
                 </div>
               </div>
-            </div >
-
-          )))
-        :
-        (
-          <div className="container my-5 d-flex justify-content-center align-items-center ">
-          <div className="text-center">No designer available</div>
+            </div>
+  
+            {/* Portfolio Link centered below all content */}
+            {designer.portfolio && (
+              <div className="text-center my-4">
+                <a
+                  href={designer.portfolio}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-dark btn-lg"
+                >
+                  View Portfolio
+                </a>
+              </div>
+            )}
+          </div>
         </div>
-        )
-      }
-
-
-    </>
-  );
-};
+      ))}
+    </div>
+  </div>
+  
+  )
+}
 
 export default DesignerPage;

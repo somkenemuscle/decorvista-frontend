@@ -1,0 +1,23 @@
+.card-custom {
+    min-height: 400px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px; /* Increased padding for a better look */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    transition: transform 0.2s; /* Animation on hover */
+  }
+  
+  .card-custom:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+  }
+  
+  h6 {
+    margin-bottom: 0.5rem; /* Less space below headings */
+  }
+  
+  .text-primary {
+    font-weight: normal; /* Make email text normal weight */
+  }
+  
