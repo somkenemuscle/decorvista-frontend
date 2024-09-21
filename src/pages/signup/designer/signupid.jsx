@@ -18,7 +18,7 @@ function Signupid() {
         e.preventDefault();
         try {
 
-            const response = await axios.post('http://localhost:4000/api/auth/designer/signup', {
+            const response = await axios.post('https://decorvista-backend.vercel.app/api/auth/designer/signup', {
                 fullname: fullName,
                 email,
                 password,

@@ -10,7 +10,7 @@ const DesignerPage = () => {
   useEffect(() => {
     const fetchDesignerData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/auth/designers'); // Replace with your API URL
+        const response = await axios.get('https://decorvista-backend.vercel.app/api/auth/designers'); // Replace with your API URL
         const { AllDesigners } = response.data
         console.log(AllDesigners)
         setDesigners(AllDesigners);
