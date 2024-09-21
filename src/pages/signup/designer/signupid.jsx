@@ -41,7 +41,7 @@ function Signupid() {
             setPhoneNumber('')
             setPortfolioLink('')
             setSpecialization('')
-            enqueueSnackbar(response.data.message)
+            enqueueSnackbar(response.data.message, { variant: 'success' })
             setUsername("yessssssss")
             router('/')
 

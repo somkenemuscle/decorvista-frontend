@@ -32,7 +32,7 @@ function SignUp() {
             setPassword('')
             setEmail('')
             setPassword('')
-            enqueueSnackbar(response.data.message)
+            enqueueSnackbar(response.data.message, { variant: 'success' })
             setUsername("yeahhhhh")
             router('/')
 

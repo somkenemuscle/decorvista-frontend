@@ -34,7 +34,7 @@ function Login() {
             }
             setEmail('')
             setPassword('')
-            enqueueSnackbar(response.data.message)
+            enqueueSnackbar(response.data.message, { variant: 'success' })
             router('/')
 
 

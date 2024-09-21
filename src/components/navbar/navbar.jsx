@@ -4,9 +4,11 @@ import '../../styles/navbar.css'
 import { GiThreeLeaves, GiShoppingCart } from "react-icons/gi";
 import { useEffect } from 'react';
 import useUserStore from '../../stores/store';
+import { useSnackbar } from 'notistack';
 
 function Navbar() {
     const { foundUsername, setUsername } = useUserStore(); // Access global state and setter from Zustand
+    const { enqueueSnackbar } = useSnackbar();
 
     useEffect(() => {
         const username = localStorage.getItem('fullname');
@@ -19,6 +21,8 @@ function Navbar() {
     function handleLogout() {
         localStorage.removeItem('fullname')
         setUsername('')
+        enqueueSnackbar('Log Out Successful',  { variant: 'success' })
+
     }
 
     return (
