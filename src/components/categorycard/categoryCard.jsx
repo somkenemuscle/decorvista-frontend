@@ -46,7 +46,7 @@ function CategoryCard() {
                             }}
                         />
                     </Link>
-                    <h5 className='category-text'>Furniture</h5>
+                    <h5 className='category-text'>Furnitures</h5>
                 </div>
 
                 <div className='col-xl-3 col-lg-4 col-md-6 col-sm-6'>
@@ -64,7 +64,7 @@ function CategoryCard() {
                             }}
                         />
                     </Link>
-                    <h5 className='category-text'>Lighting</h5>
+                    <h5 className='category-text'>Lightings</h5>
                 </div>
             </div>
 
