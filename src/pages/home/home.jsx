@@ -9,7 +9,7 @@ import Feedback from '../../components/feedback/feedback';
 import { bestSellerProducts } from '../../database/bestsellers';
 import { TbFlowerOff } from "react-icons/tb";
 import { BsFillExclamationOctagonFill } from "react-icons/bs";
-import { GiRabbit } from "react-icons/gi";
+import { GiHouse, GiPaintBrush } from "react-icons/gi";
 
 
 function Home() {
@@ -66,20 +66,18 @@ function Home() {
 
 
       {/* mission section */}
-      <div className="hidden mission-container container text-center ">
+      <div className="hidden mission-container container text-center mt-6">
+        <br />
+        <br /><br /><br />
         <h4>About Our Products</h4>
-        <div className="row">
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <span className='flower-icon mission-icons'><TbFlowerOff /></span>
-            <p>Our products are 100% free of gluten containing materials or derivatives of gluten containing grains handled at any of our facilities</p>
+        <div className="row justify-content-center">
+          <div className="col-lg-5 col-md-6 col-sm-12">
+            <span className='curtain-icon mission-icons'><GiHouse /></span>
+            <p>Our curtains and blinds are crafted from premium, eco-friendly materials, designed to enhance both the style and energy efficiency of your home.</p>
           </div>
-          <div className="col-lg-4 col-md-6 col-sm-12">
-            <span className='no-icon mission-icons'><BsFillExclamationOctagonFill /></span>
-            <p>Our products do not contain ingredients or additives that are from an animal source unless otherwise it is specified</p>
-          </div>
-          <div className="col-lg-4 col-md-12 col-sm-12">
-            <span className='rabbit-icon mission-icons'><GiRabbit /></span>
-            <p>We believe that animals should not suffer or die to test cosmetics or cosmetic ingredients.We support animal protection </p>
+          <div className="col-lg-5 col-md-6 col-sm-12">
+            <span className='design-icon mission-icons'><GiPaintBrush /></span>
+            <p>Every product is customizable to fit your unique space, ensuring a perfect blend of functionality and aesthetic appeal that complements any room.</p>
           </div>
         </div>
       </div>

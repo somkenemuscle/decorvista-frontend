@@ -21,17 +21,17 @@ function Feedback() {
             <div className="feedb carousel-inner">
                 <div className="carousel-item active">
                     <div className="d-block w-100">
-                        <p>"I've been using this skincare product for a month now, and I can already see a noticeable difference in my skin's texture and appearance. It feels smoother, looks brighter, and my fine lines seem to be diminishing. I'm really impressed with the results!"</p>
-                        <h6><strong>John Doe. I</strong></h6>
-
+                        <p>"I recently purchased custom blinds from DecorVista, and they completely transformed the look of my living room. The quality is outstanding, and they fit perfectly. I’ve already gotten so many compliments on how elegant and modern my space looks now!"</p>
+                        <h6><strong>Alamin. I</strong></h6>
                     </div>
                 </div>
                 <div className="carousel-item">
                     <div className="d-block w-100">
-                        <p>"As someone with sensitive skin, I'm always hesitant to try new skincare products. But this one has been a game-changer for me. Not only is it gentle and non-irritating, but it's also incredibly effective. My skin feels hydrated, calm, and has a healthy glow that I haven't seen in years. I highly recommend it!"</p>
-                        <h6><strong>Ada Turin. Y</strong></h6>
+                        <p>"DecorVistas curtains have added such a cozy and stylish touch to my bedroom. The fabric is top-notch, and the installation was so easy. I love how they control the lighting perfectly while still looking gorgeous. I couldn’t be happier with my purchase!"</p>
+                        <h6><strong>Lionel Messi</strong></h6>
                     </div>
                 </div>
+
 
                 {feedback.map((item, index) => (
                     <div key={index} className="carousel-item">
