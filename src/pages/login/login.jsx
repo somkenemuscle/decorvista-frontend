@@ -1,39 +1,70 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import '../../styles/login.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import {  useSnackbar } from 'notistack';
-
+import { useSnackbar } from 'notistack';
+import axiosInstance from '../../lib/axiosInstance';
+import axios from 'axios';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const router =useNavigate();
+    const router = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(' https://decorvista-backend.vercel.app/api/auth/signin',{
+            const response = await axiosInstance.post('/auth/signin', {
                 email,
                 password,
             });
-            const {fullname}=response.data
-            if(fullname){
-                localStorage.setItem('fullname',fullname)
+            const { fullname } = response.data
+            if (fullname) {
+                localStorage.setItem('fullname', fullname)
             }
             setEmail('')
             setPassword('')
             enqueueSnackbar(response.data.message)
             router('/')
-          
+
 
             console.log(response.data); // Handle success (e.g., redirect, show a message)
         } catch (error) {
-            console.error('Error logging in:', error); // Handle error (e.g., show a message)
+            console.error('Error occurred during signin:', error);
+
+            // Default error message
+            let errorMessage = 'An error occurred. Please try again.';
+
+            // Check if the error is an Axios error
+            if (axios.isAxiosError(error)) {
+                // Check for a response error
+                if (error.response) {
+                    // Extract message from response if available
+                    const responseMessage = error.response.data?.error;
+                    if (responseMessage) {
+                        errorMessage = responseMessage;
+                    } else {
+                        errorMessage = error.response.data?.message || errorMessage;
+                    }
+                } else {
+                    // Handle cases where no response is available (e.g., network errors)
+                    errorMessage = 'Network error. Please try again.';
+                }
+            } else {
+                // Handle unexpected error types
+                errorMessage = 'An unexpected error occurred. Please try again later.';
+            }
+            enqueueSnackbar(errorMessage,{variant:'error'})
+
+        } finally {
+            // Hide the loader after request is complete (either success or error)
         }
-    };
+
+    }
+
+
+
 
     return (
         <div className="container d-flex justify-content-center align-items-center" style={{ height: '60vh' }}>
@@ -70,6 +101,6 @@ function Login() {
             </div>
         </div>
     );
-}
 
+}
 export default Login;

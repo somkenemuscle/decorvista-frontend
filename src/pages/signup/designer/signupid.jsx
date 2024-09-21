@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {  useSnackbar } from 'notistack';
+import axiosInstance from '../../../lib/axiosInstance';
+
+
 
 function Signupid() {
     const [fullName, setFullName] = useState('');
@@ -18,7 +20,7 @@ function Signupid() {
         e.preventDefault();
         try {
 
-            const response = await axios.post('https://decorvista-backend.vercel.app/api/auth/designer/signup', {
+            const response = await axiosInstance.post('/auth/designer/signup', {
                 fullname: fullName,
                 email,
                 password,
