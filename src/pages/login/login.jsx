@@ -101,7 +101,11 @@ function Login() {
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn btn-dark w-100">Login  {loading &&  <Loader />}</button>
+                        <button type="submit" className="btn btn-dark w-100 d-flex justify-content-center align-items-center">
+                            Login
+                            {loading && <Loader />}
+                        </button>
+
                     </form>
                     <p id='fff'>Don't have an account? <Link to='/homeowner/signup'>SignUp</Link> </p>
                 </div>

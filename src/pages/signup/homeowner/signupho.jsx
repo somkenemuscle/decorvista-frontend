@@ -106,7 +106,7 @@ function SignUp() {
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn btn-dark w-100">Sign Up  {loading && <span className="ml-3"> <Loader /> </span>}</button>
+                        <button type="submit" className="btn btn-dark w-100 d-flex justify-content-center align-items-center">Sign Up  {loading && <span className="ml-3"> <Loader /> </span>}</button>
                     </form>
                     <p>Are you a designer? <Link to='/designer/signup'>Signup here</Link> </p>
                 </div>

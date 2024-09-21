@@ -159,7 +159,7 @@ function Signupid() {
                                 onChange={(e) => setAbout(e.target.value)}
                             />
                         </div>
-                        <button type="submit" className="btn btn-dark w-100">Sign Up  {loading && <span className="ml-3"> <Loader /> </span>}</button>
+                        <button type="submit" className="btn btn-dark w-100 d-flex justify-content-center align-items-center">Sign Up  {loading && <span className="ml-3"> <Loader /> </span>}</button>
                     </form>
                 </div>
             </div>
