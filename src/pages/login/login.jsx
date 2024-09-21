@@ -19,6 +19,10 @@ function Login() {
                 email,
                 password,
             });
+            const {fullname}=response.data
+            if(fullname){
+                localStorage.setItem('fullname',fullname)
+            }
             setEmail('')
             setPassword('')
             enqueueSnackbar(response.data.message)

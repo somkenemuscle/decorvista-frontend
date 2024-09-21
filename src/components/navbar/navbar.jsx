@@ -2,9 +2,19 @@ import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 import '../../styles/navbar.css'
 import { GiThreeLeaves, GiShoppingCart } from "react-icons/gi";
+import { useEffect, useState } from 'react';
 
 
-function navbar() {
+function Navbar() {
+    const [foundUsername, setusername] = useState('')
+    useEffect(() => {
+        const username = localStorage.getItem('fullname')
+        if (username) {
+            setusername(username)
+        }
+
+    }, [])
+
     return (
         <>
             <nav className="navbar sticky-top navbar-expand-lg">
@@ -38,13 +48,20 @@ function navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/about">Blogs</Link>
                             </li>
+                            {foundUsername ? (
+                                <li className="nav-item">
+                                    <Link className="nav-link" aria-current="page" to="/login">Logout</Link>
+                                </li>
+
+                            ) :
+                                (
+                                    <li className="nav-item">
+                                        <Link className="nav-link" aria-current="page" to="/login">Login</Link>
+                                    </li>
+                                )
+                            }
 
 
-
-
-                            <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to="/login">Login</Link>
-                            </li>
                             <li className="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/cart">
                                     <GiShoppingCart /> </Link>
@@ -52,11 +69,11 @@ function navbar() {
 
                         </ul>
                     </div>
-                </div>
-            </nav>
+                </div >
+            </nav >
             <Outlet />
         </>
     );
 }
 
-export default navbar
+export default Navbar
