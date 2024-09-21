@@ -1,5 +1,8 @@
 import React from 'react';
 import '../../styles/home.css';
+import { Link } from "react-router-dom";
+
+
 
 function carousel() {
     return (
@@ -15,9 +18,17 @@ function carousel() {
                             <img src='https://images.unsplash.com/photo-1493857671505-72967e2e2760?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' className="img-fluid small-image d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-text-bg col-xl-4 col-md-5 col-sm-12">
-                            <h2>Bring Your Vision to Life</h2>
+                            <h2>Bring Your Vision to  <span style={{
+                                color: 'grey'
+                            }}>Life</span></h2>
                             <p>Your designs deserve to be showcased, and we are here to help you turn your creativity into a lasting impact</p>
-                            <button>JOIN AS A DESIGNER</button>
+                            <Link to='/designer/signup'>
+                                <button style={{
+                                    borderRadius: '5px',
+                                    padding: '8px'
+                                }}>Join As A Designer</button>
+                            </Link>
+
 
                         </div>
                     </div>
@@ -29,9 +40,18 @@ function carousel() {
                             <img src='https://images.unsplash.com/photo-1533779283484-8ad4940aa3a8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' className="img-fluid small-image d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-text-bg col-xl-4 col-md-5 col-sm-12">
-                            <h2>Transform Your Space</h2>
+                            <h2>Transform Your  <span style={{
+                                color: 'grey'
+                            }}>Space</span></h2>
                             <p>Find the perfect designs to create a home that reflects your style and personality.</p>
-                            <button>EXPLORE DESIGNS</button>
+
+                            <Link to='/designer'>
+                                <button style={{
+                                    borderRadius: '5px',
+                                    padding: '8px'
+                                }}>Meet Designers</button>
+                            </Link>
+
 
                         </div>
                     </div>
