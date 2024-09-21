@@ -7,11 +7,14 @@ import { furnitureProducts } from '../../database/furniture';
 import { curtainProducts } from '../../database/curtain';
 import { lightingProducts } from '../../database/lighting';
 import { useCart } from '../../context/cartContext';
+import {  useSnackbar } from 'notistack';
+
 
 
 function ProductCards({ src, name, price, id, category }) {
   // cart global state
   const { cart, setCart } = useCart();
+  const { enqueueSnackbar } = useSnackbar();
 
   //handle cart functionality
   function handleCart(id, category) {
@@ -25,6 +28,7 @@ function ProductCards({ src, name, price, id, category }) {
     const product = categoryProducts[category]?.find(product => product.id === id);
     if (product) {
       setCart([...cart, product]); // Adding product to cart
+      enqueueSnackbar("Added to cart",{variant:'success'})
     } else {
       console.error(`Product not found in category: ${category}`);
     }
