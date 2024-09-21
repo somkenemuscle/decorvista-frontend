@@ -7,8 +7,6 @@ import CategoryCard from '../../components/categorycard/categoryCard';
 import '../../styles/home.css'
 import Feedback from '../../components/feedback/feedback';
 import { bestSellerProducts } from '../../database/bestsellers';
-import { TbFlowerOff } from "react-icons/tb";
-import { BsFillExclamationOctagonFill } from "react-icons/bs";
 import { GiHouse, GiPaintBrush } from "react-icons/gi";
 
 

@@ -16,6 +16,7 @@ import { CartProvider } from "./context/cartContext";
 import Feedback from "./pages/feedback/feedback";
 import { FeedbackProvider } from "./context/feedbackContext";
 import { SnackbarProvider } from "notistack";
+import DesignerPage from "./pages/designer/designer";
 
 
 import './App.css';
@@ -42,6 +43,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contacts />} />
               <Route path="/cart" element={<Carts />} />
+              <Route path="/designer" element={<DesignerPage />} />
 
 
               <Route path="/products/furniture" element={<Furniture />} />

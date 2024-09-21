@@ -41,7 +41,7 @@ function Navbar() {
                                 <Link className="nav-link" aria-current="page" to="/gallery">Gallery</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to="/about">Designers</Link>
+                                <Link className="nav-link" aria-current="page" to="/designer">Designers</Link>
                             </li>
 
 
