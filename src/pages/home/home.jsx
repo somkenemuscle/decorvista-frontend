@@ -70,7 +70,9 @@ function Home() {
         <h4>About Our Products</h4>
         <div className="row justify-content-center">
           <div className="col-lg-5 col-md-6 col-sm-12">
-            <span className='curtain-icon mission-icons'><GiHouse /></span>
+            <span className='curtain-icon mission-icons' style={{
+              color: 'grey'
+            }}><GiHouse /></span>
             <p>Our curtains and blinds are crafted from premium, eco-friendly materials, designed to enhance both the style and energy efficiency of your home.</p>
           </div>
           <div className="col-lg-5 col-md-6 col-sm-12">
@@ -80,27 +82,6 @@ function Home() {
         </div>
       </div>
 
-
-
-      {/* img section */}
-      {/* <section className='img2-section hidden'>
-        <div className="container">
-          <div className="row">
-            <div className="img2-text col-lg-6 col-md-6 col-sm-12">
-              <h3>Our Upcoming Product </h3>
-              <p>Our new hydration cream and serum set, which will be available from 2nd of june 2024, and would be going
-                for a price of $132™.
-              </p>
-              <br />
-              <button style={{
-                marginTop: '16px'
-              }}>SHOP SKINCARE</button>
-            </div>
-            <div className='col-lg-6 col-md-6 col-sm-12 ' id='img-bg'>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
 
 

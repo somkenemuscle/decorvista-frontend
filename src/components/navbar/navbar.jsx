@@ -54,10 +54,6 @@ function Navbar() {
                                 <Link className="nav-link" aria-current="page" to="/designer">Designers</Link>
                             </li>
 
-
-                            <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to="/about">About</Link>
-                            </li>
                             {foundUsername ? (
                                 <li className="nav-item">
                                     <Link className="nav-link" onClick={handleLogout} aria-current="page" to="/login">Logout</Link>
