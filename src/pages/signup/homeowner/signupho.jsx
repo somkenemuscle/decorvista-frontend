@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../../../styles/signupH.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import {  useSnackbar } from 'notistack';
 
 
 function SignUp() {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const router =useNavigate();
+    const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,7 +21,12 @@ function SignUp() {
                 email,
                 password,
             });
-            console.log(response.data); // Handle success (e.g., redirect, show a message)
+            setPassword('')
+            setEmail('')
+            setPassword('')
+            enqueueSnackbar(response.data.message)
+            router('/')
+           
         } catch (error) {
             console.error('Error signing up:', error); // Handle error (e.g., show a message)
         }

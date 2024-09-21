@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {  useSnackbar } from 'notistack';
 
 function Signupid() {
     const [fullName, setFullName] = useState('');
@@ -11,6 +12,7 @@ function Signupid() {
     const [specialization, setSpecialization] = useState('');
     const [about, setAbout] = useState('');
     const router=useNavigate();
+    const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,9 +34,10 @@ function Signupid() {
             setPhoneNumber('')
             setPortfolioLink('')
             setSpecialization('')
+            enqueueSnackbar(response.data.message)
             router('/')
 
-            console.log(response.data); // Handle success
+       
         } catch (error) {
             console.error('Error signing up:', error); // Handle error
         }
